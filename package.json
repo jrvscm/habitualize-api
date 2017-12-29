@@ -4,7 +4,8 @@
   "description": "A habit tracking api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,13 +18,24 @@
   },
   "homepage": "https://github.com/jrvscm/habitualize-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "mongoose": "^5.0.0-rc0"
+    "jsonwebtoken": "^8.1.0",
+    "moment": "^2.20.1",
+    "momentjs": "^2.0.0",
+    "mongoose": "^5.0.0-rc0",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^4.0.1"
+    "mocha": "^3.2.0"
   }
 }
