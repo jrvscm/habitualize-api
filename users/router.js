@@ -140,7 +140,7 @@ router.post('/', jsonParser, (req, res) => {
 //just doing this so we have a quick way to see all users
 router.get('/', (req, res) => {
     return User.find()
-        .then(users => res.json(users.map(user => user.repr())))
+        .then(users => res.json(users.map(user => user)))
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 

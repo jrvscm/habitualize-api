@@ -9,6 +9,7 @@ const uuid = require('uuid');
 
 const {router: usersRouter} = require('./users');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
+const {router: habitRouter} = require('./habits');
 const {CLIENT_ORIGIN} = require('./config');
 
 mongoose.Promise = global.Promise;
@@ -40,6 +41,7 @@ passport.use(jwtStrategy);
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
+app.use('/api/habits/', habitRouter);
 
 app.get('/', (req,res) => {
 	res.json({
