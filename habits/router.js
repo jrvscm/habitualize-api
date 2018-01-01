@@ -28,4 +28,14 @@ router.post('/', jsonParser,
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
+//get all habits for a user
+router.get('/:id', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		Habit
+		.find({userRef: req.params.id})
+        .then(habits => res.json(habits.map(habit => habit)))
+        .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
 module.exports = {router};
