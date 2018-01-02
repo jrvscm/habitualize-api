@@ -11,12 +11,13 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-//add a new workout
+//add a new habit
 router.post('/', jsonParser,
 	passport.authenticate('jwt', {session: false}),
 	(req, res) => {
 		Habit
 		.create({
+			streak: req.body.streak,
 			habitTitle: req.body.habitTitle,
 			loggedDate: req.body.loggedDate,
 			userRef: req.body.userRef,
@@ -34,7 +35,7 @@ router.get('/:id', jsonParser,
 	(req, res) => {
 		Habit
 		.find({userRef: req.params.id})
-        .then(habits => res.json(habits.map(habit => habit)))
+        .then(habits => res.status(200).json(habits.map(habit => habit)))
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
