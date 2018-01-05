@@ -11,7 +11,7 @@ const HabitSchema = mongoose.Schema({
 	goodOrBad: {type: String, required: true},
 	goal: {type: Number, required: true},
 	logInterval: {type: String, required: true},
-	startDate: {type: Date, default: Date.now},
+	startDate: {type: String, required: true},
 	userRef: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	habitId: {type: mongoose.Schema.Types.ObjectId}
 });

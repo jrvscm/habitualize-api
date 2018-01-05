@@ -23,7 +23,8 @@ router.post('/', jsonParser,
 			userRef: req.body.userRef,
 			goodOrBad: req.body.goodOrBad,
 			goal: req.body.goal,
-			logInterval: req.body.logInterval
+			logInterval: req.body.logInterval,
+			startDate: req.body.startDate
 			})
         .then(habit => res.status(201).json(habit))
         .catch(err => res.status(500).json({message: 'Internal server error'}));
