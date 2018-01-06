@@ -40,11 +40,22 @@ router.get('/:id', jsonParser,
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
+//update a habit by id
 router.put('/:id', jsonParser,
 	passport.authenticate('jwt', {session: false}),
 	(req, res) => {
 		Habit
-		.findOneAndUpdate({_id: req.params.id}, {$push: {streak: req.body.streak}}, {new: true})
+		.findOneAndUpdate({_id: req.params.id}, {$set: {streak: req.body.streak}}, {new: true})
+        .then(habit => res.status(200).json(habit))
+        .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+//get habit by id
+router.get('/current/:id', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		Habit
+		.find({_id: req.params.id})
         .then(habit => res.status(200).json(habit))
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
