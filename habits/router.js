@@ -60,4 +60,13 @@ router.get('/current/:id', jsonParser,
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
+//delete habit by id
+router.delete('/:id', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		Habit
+		.findByIdAndRemove(req.params.id)
+        .then(() => res.status(204).json({message:'Item Removed'}))
+        .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
 module.exports = {router};
