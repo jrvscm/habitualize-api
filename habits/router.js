@@ -61,7 +61,7 @@ router.get('/current/:id', jsonParser,
 });
 
 //delete habit by id
-router.delete('/:id', jsonParser,
+router.delete('/delete/:id', jsonParser,
 	passport.authenticate('jwt', {session: false}),
 	(req, res) => {
 		Habit
