@@ -118,10 +118,12 @@ function tearDownDb() {
                     const payload = jwt.verify(token, JWT_SECRET, {
                         algorithm: ['HS256']
                     });
+                    const userId = payload.user.userId;
                     expect(payload.user).to.deep.equal({
                         username,
                         firstName,
-                        lastName
+                        lastName,
+                        userId
                     });
                 });
         });

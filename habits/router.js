@@ -69,4 +69,45 @@ router.delete('/delete/:id', jsonParser,
         .then(() => res.status(204).json({message:'Item Removed'}))
         .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
+//post then send protected data for test
+router.post('/protected', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+    (req, res) => {
+        return res.json({
+            data: 'protected data'
+        });
+    }
+);
+
+
+//post for test
+router.post('/protected', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+  		Habit
+		.create({
+			streak: req.body.streak,
+			habitTitle: req.body.habitTitle,
+			loggedDate: req.body.loggedDate,
+			userRef: req.body.userRef,
+			goodOrBad: req.body.goodOrBad,
+			goal: req.body.goal,
+			logInterval: req.body.logInterval,
+			startDate: req.body.startDate
+		})
+        .then(habit => res.status(201).json(habit))
+        .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+//delete for test
+router.delete('/protected', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		Habit
+		.findByOneAndRemove(req.params.habitName)
+		.then(() => res.status(204).json({message:'Item Removed'}))
+		.catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
 module.exports = {router};

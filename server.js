@@ -43,12 +43,6 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 app.use('/api/habits/', habitRouter);
 
-app.get('/', (req,res) => {
-	res.json({
-		data: 'everything is a .O.K.'
-	});
-});
-
 app.use('*', (req, res) => {
 	return res.status(404).json({message: 'Not Found'});
 });
