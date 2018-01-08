@@ -80,6 +80,16 @@ router.post('/protected', jsonParser,
     }
 );
 
+router.get('/test', jsonParser,
+	passport.authenticate('jwt', {session: false}),
+    (req, res) => {
+        res.json({
+            data: 'protected data'
+        });
+    }
+);
+
+
 
 //post for test
 router.post('/protected', jsonParser,
