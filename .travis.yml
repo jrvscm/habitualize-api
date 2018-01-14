@@ -1,4 +1,11 @@
- language: node_js
- node_js: node
- services:
-     - mongodb
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: JamAKQ2DYly7Gll9eD0T68RZnfmWYFFZOdq2BpF87LOqZK+Ok7gfSUyWzYyacJAkUyd/qWu0bobi7a59eTWk8TgW9vhuenFXNP23Oq49yM502YoaCCOtce6JB/mo3l1Ea07IAk0+cumV+anIfa00o8Zg+2XiXJ7O9NKFwbuf181tC4+1JHdubk22o0wGgk4TDq0L1vqbEeUuThMICs8NZuV1kZ+jZeOQfLER+i3Xa2C+E+HfbaJTOe5ZLFZ5UdYpGlMnCaWcA94RqsxwfnOn4BIsu0izzdZgCKJlyIAEANPA5ZI9UlJwILf1Rc7GLKEePBvrcN5zaIJx3Id0LdIEgVfs2HbcMCFTtexzHcp+qu1zrF/KJ658GxbqT1juxykn4+XHi5ERulBiaIOeHm8zpHxF+nLawUIiwHNNdlUfznTAoUZU9KBTbnYrv8vpiNMgprx5DXq+E3YlB1Rt8Yk2kDxJIPkQZv/HD2BPzNsIuKZz5UM1ijGJtjqAOcUMURkhhFEgDgxajKjHecOp+yVkO8yFprAPiUyBOQsRaftqMvh+ogG1ydLtwOmf59gupm7HlT0IQnxwbsxkJ/UoD3jzKs7M8CJlCQAGtOJT6kwrE+bx1CTvglT1Tnp1yKyaDIF2mjbZeqCZUyoIS1DZYoV1d6QHKRD4zi1h6+OBb9pHtrg=
+  app: habitualize-api
+  on:
+    repo: jrvscm/habitualize-api
