@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const uuid = require('uuid');
 
 mongoose.Promise = global.Promise;
-
+//
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
