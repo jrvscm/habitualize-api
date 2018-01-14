@@ -11,7 +11,7 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-///add a new habit
+//add a new habit
 router.post('/', jsonParser,
 	passport.authenticate('jwt', {session: false}),
 	(req, res) => {
